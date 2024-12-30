@@ -34,3 +34,6 @@ int32_t main(){
 
     return 0;
 }
+
+//https://codeforces.com/problemset/problem/1373/B
+// Time complexity: O(size of string) for each test case

@@ -34,3 +34,6 @@ int32_t main(){
 
     return 0;
 }
+
+//https://codeforces.com/problemset/problem/1380/A
+//TC: O(n) for each test case

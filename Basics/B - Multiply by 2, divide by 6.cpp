@@ -44,3 +44,4 @@ int32_t main(){
 }
 
 //https://codeforces.com/contest/1374/problem/B
+// Time complexity: O(log n) for each test case
