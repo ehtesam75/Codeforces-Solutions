@@ -30,3 +30,4 @@ int32_t main(){
 }
 
 //https://codeforces.com/problemset/problem/1475/A
+// Time complexity: O(1) for each test case
