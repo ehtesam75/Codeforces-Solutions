@@ -50,3 +50,4 @@ int32_t main(){
 }
 
 //https://codeforces.com/problemset/problem/1876/A
+//time complexity : O(n log n), where n is the total sum of all test case sizes
