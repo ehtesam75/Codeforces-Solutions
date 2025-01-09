@@ -4,39 +4,42 @@ using namespace std;
 #define FASTER ios_base::sync_with_stdio(false); cin.tie(NULL);
 #define endl '\n'
 
-const int N = 1e6 + 7;
-int d[N];
+const int N = 55;
+char a[N][N];
 
-bool is_prime(int n){
-    if(n == 1) return 0;
-    for(int i = 2; 1ll * i * i <= n; i++){
-        if(n % i == 0) return 0;
-    }
-    return 1;
-}
-
-void solve(){
-    int a, b; cin >> a >> b;
-    ll cnt = 0;
-    for(int i = a; i <= b; i++){
-        if(is_prime(d[i])) cnt++;
-    }
-    cout << cnt << endl;
+bool one_found(char ch){
+    return (ch == 'f' or ch == 'a' or ch == 'c' or ch == 'e');
 }
 
 int32_t main(){
     FASTER;
-    int tc; cin >> tc;
-
-    for(int i = 1; i < N; i++){
-        for(int j = i; j < N; j += i){
-            d[j] += i;
+    
+    int n, m; cin >> n >> m;
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+            cin >> a[i][j];
         }
     }
-    
-    while(tc--){
-        solve();
+
+    ll cnt = 0;
+    set<char> se;
+    for(int i = 0; i < n-1; i++){
+        for(int j = 0; j < m-1; j++){
+            if(one_found(a[i][j]) and one_found(a[i][j+1]) and one_found(a[i+1][j]) and one_found(a[i+1][j+1])){
+                se.insert(a[i][j]);
+                se.insert(a[i][j+1]);
+                se.insert(a[i+1][j]);
+                se.insert(a[i+1][j+1]);
+                cnt += (se.size() == 4);
+                se.clear();
+            }
+        }
     }
+
+    cout << cnt << endl;
 
     return 0;
 }
+
+//https://codeforces.com/problemset/problem/549/A
+//tc: o(n * m)
